@@ -5,13 +5,23 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"/>
+
+    <TextView
 
         android:id="@+id/success"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="40dp"
-        android:text="Success"
+        android:text="Successful Login"
         android:textColor="@color/black"
         android:textSize="40sp" />
 
