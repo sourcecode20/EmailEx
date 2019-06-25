@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EmailEx</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="dashbaord">Dashboard</string>
+    <string name="new_user">New User</string>
+    <string name="already_register">Already Register</string>
+    <string name="signout">Sign Out</string>
+</resources>
