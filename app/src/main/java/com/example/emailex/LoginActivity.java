@@ -1,6 +1,7 @@
 package com.example.emailex;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -26,30 +27,20 @@ public class LoginActivity extends AppCompatActivity {
     TextView signup;
     EditText editTextEmail, editTextPassword;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        FirebaseAuth.getInstance().createUserWithEmailAndPassword(editText1.getText().toString(),editText2.getText().toString())
-//                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-//                    @Override
-//                    public void onSuccess(AuthResult authResult) {
-//                        Log.i("success", "onComplete: "+FirebaseAuth.getInstance().getCurrentUser().getEmail()+" "+
-//                                FirebaseAuth.getInstance().getCurrentUser().getUid());
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.i("success", "onFailure: "+e.toString());
-//            }
-//        });
-        final DialogPlus dialog=DialogPlus.newDialog(this)
+
+        final DialogPlus dialog = DialogPlus.newDialog(this)
                 .setContentHolder(new ViewHolder(R.layout.activity_lottie))
                 .setExpanded(false)
+                .setContentBackgroundResource(Color.TRANSPARENT)
                 .setGravity(Gravity.CENTER)
                 .create();
-        LinearLayout layout= (LinearLayout) dialog.getHolderView();
+        LinearLayout layout = (LinearLayout) dialog.getHolderView();
 
 
         loginBtn = (Button) findViewById(R.id.loginBtn);
@@ -60,40 +51,46 @@ public class LoginActivity extends AppCompatActivity {
                 editTextEmail = findViewById(R.id.editTextEmail);
                 editTextPassword = findViewById(R.id.editTextPassword);
 
-                String email=editTextEmail.getText().toString();
-                String password=editTextPassword.getText().toString();
+                String email, password, emailPattern;
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(LoginActivity.this,"Enter Email address",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(LoginActivity.this,"Enter password",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(password.length()<6){
-                    Toast.makeText(LoginActivity.this,"Enter atleast Six characters",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                email = editTextEmail.getText().toString();
+                password = editTextPassword.getText().toString();
+                emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
 
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(LoginActivity.this, "Enter Email address", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (!email.matches(emailPattern)) {
+                    Toast.makeText(LoginActivity.this, "Enter valid Email address", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(LoginActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (password.length() < 6) {
+                    Toast.makeText(LoginActivity.this, "Enter atleast Six characters", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+                }
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                                dialog.show();
                                 finish();
                             }
-
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     }
                 });
-                dialog.show();
+
             }
         });
+
         signup = (TextView) findViewById(R.id.signup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +99,6 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
+
 }

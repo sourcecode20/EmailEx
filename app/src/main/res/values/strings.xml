@@ -10,4 +10,7 @@
     <string name="signout">Sign Out</string>
     <string name="firebase">Firebase Authentication</string>
     <string name="email_authentication">Email Authentication</string>
+    <string name="email">email</string>
+    <string name="password2">password2</string>
+    <string name="emailPattern">emailPattern</string>
 </resources>
