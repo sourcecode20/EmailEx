@@ -3,56 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_weight="6"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
-        android:background="@color/blue"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:contentDescription="image"
-            android:src="@drawable/firebase_logo" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:theme="@style/AppTheme.PopupOverlay">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/firebase"
-                android:textSize="25sp"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/email_authentication"
-                android:layout_gravity="center"/>
+        </androidx.appcompat.widget.Toolbar>
 
-        </LinearLayout>
-
-    </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center"
         android:background="@color/grey"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -68,7 +45,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:background="@color/grey"
         android:gravity="center_vertical"
         android:orientation="vertical">
@@ -84,19 +61,19 @@
 
         <EditText
             android:id="@+id/editTextEmail2"
-            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
-            android:hint="@string/email_id" />
+            android:hint="@string/email_id"
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:text="@string/password"
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -110,7 +87,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
             android:hint="@string/password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
 
 
     </LinearLayout>
@@ -119,8 +96,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center"
         android:background="@color/grey"
+        android:gravity="center"
         android:orientation="vertical">
 
         <Button
@@ -128,10 +105,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:background="@color/blue"
-            android:textColor="@color/white"
             android:layout_marginEnd="50dp"
-            android:text="@string/sign_up" />
+            android:background="@color/blue"
+            android:text="@string/sign_up"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
@@ -141,8 +118,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center"
         android:background="@color/grey"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
