@@ -39,41 +39,45 @@
 
     </LinearLayout>
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:gravity="center"-->
-    <!--android:orientation="vertical"-->
-    <!--android:layout_weight="4">-->
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center"-->
-    <!--android:id="@+id/getTextName"-->
-    <!--android:text="@string/name"-->
-    <!--android:textSize="20sp" />-->
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center"-->
-    <!--android:id="@+id/getTextAge"-->
-    <!--android:text="@string/age"-->
-    <!--android:textSize="20sp" />-->
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center"-->
-    <!--android:id="@+id/getTextMobile"-->
-    <!--android:text="@string/mobile"-->
-    <!--android:textSize="20sp" />-->
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center"-->
-    <!--android:id="@+id/getTextAddress"-->
-    <!--android:text="@string/address"-->
-    <!--android:textSize="20sp" />-->
-    <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/getTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/getTextAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/age"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/getTextMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/mobile"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/getTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/address"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

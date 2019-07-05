@@ -87,10 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                     HashMap<String, Object> map = new HashMap<>();
-                                    map.put("Name", editTextName.getText().toString());
-                                    map.put("Age", editTextAge.getText().toString());
-                                    map.put("Mobile", editTextMobile.getText().toString());
-                                    map.put("Address", editTextAddress.getText().toString());
+                                    map.put("name", editTextName.getText().toString());
+                                    map.put("age", editTextAge.getText().toString());
+                                    map.put("mobile", editTextMobile.getText().toString());
+                                    map.put("address", editTextAddress.getText().toString());
 
                                     FirebaseDatabase.getInstance().getReference()
                                             .child("Users")
@@ -100,11 +100,20 @@ public class RegisterActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     Log.i("Users", "onComplete: ");
+
+//                                                    Bundle bundle=new Bundle();
+//                                                    bundle.putString("name",editTextName.getText().toString());
+//                                                    bundle.putString("age",editTextAge.getText().toString());
+//                                                    bundle.putString("mobile",editTextMobile.getText().toString());
+//                                                    bundle.putString("address",editTextAddress.getText().toString());
+
+                                                    Toast.makeText(RegisterActivity.this, "Successfully Sign Up", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                                                    finish();
+
                                                 }
                                             });
-                                    Toast.makeText(RegisterActivity.this, "Successfully Sign Up", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
-                                    finish();
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
