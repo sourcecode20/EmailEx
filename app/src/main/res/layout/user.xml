@@ -15,7 +15,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:text="@string/name"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/userAge"
@@ -24,7 +24,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:text="@string/age"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/userMobile"
@@ -33,7 +33,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:text="@string/mobile"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/userAddress"
@@ -42,6 +42,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:text="@string/address"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>
