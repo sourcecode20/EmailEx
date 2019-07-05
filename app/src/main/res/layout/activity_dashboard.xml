@@ -87,11 +87,23 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:background="@color/blue"
+            android:text="click"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/signoutBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginEnd="100dp"
+            android:layout_marginTop="10dp"
             android:background="@color/blue"
             android:text="@string/signout"
             android:textColor="@color/white"

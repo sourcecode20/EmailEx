@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.emailex.R;
 import com.example.emailex.Utils.Loader;
+import com.example.emailex.firebasse.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -77,48 +78,49 @@ public class RegisterActivity extends AppCompatActivity {
                 age = editTextAge.getText().toString();
                 mobile = editTextMobile.getText().toString();
                 address = editTextAddress.getText().toString();
+                Log.i("sdbchjsbdf", "signup_listener: ");
 
                 if (validation(email2, password2, name, age, mobile, address)) {
+                    Log.i("sdbchjsbdf", "validation: ");
 
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextEmail2.getText().toString(), editTextPassword2.getText().toString())
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
+                                    Log.i("sdbchjsbdf", "createUserWithEmailAndPassword: ");
+
 
                                     HashMap<String, Object> map = new HashMap<>();
-                                    map.put("name", editTextName.getText().toString());
-                                    map.put("age", editTextAge.getText().toString());
-                                    map.put("mobile", editTextMobile.getText().toString());
-                                    map.put("address", editTextAddress.getText().toString());
+                                    map.put(Constants.Users.name, editTextName.getText().toString());
+                                    map.put(Constants.Users.age, editTextAge.getText().toString());
+                                    map.put(Constants.Users.mobile, editTextMobile.getText().toString());
+                                    map.put(Constants.Users.address, editTextAddress.getText().toString());
 
-                                    FirebaseDatabase.getInstance().getReference()
-                                            .child("Users")
-                                            .child(FirebaseAuth.getInstance().getUid())
-                                            .updateChildren(map)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    Log.i("Users", "onComplete: ");
+                                    if (FirebaseAuth.getInstance().getUid() != null)
+                                        FirebaseDatabase.getInstance().getReference()
+                                                .child(Constants.Users.key)
+                                                .child(FirebaseAuth.getInstance().getUid())
+                                                .updateChildren(map)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        Log.i("sdbchjsbdf", "addOnCompleteListener: ");
 
-//                                                    Bundle bundle=new Bundle();
-//                                                    bundle.putString("name",editTextName.getText().toString());
-//                                                    bundle.putString("age",editTextAge.getText().toString());
-//                                                    bundle.putString("mobile",editTextMobile.getText().toString());
-//                                                    bundle.putString("address",editTextAddress.getText().toString());
+                                                        loader.dismis();
 
-                                                    Toast.makeText(RegisterActivity.this, "Successfully Sign Up", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
-                                                    finish();
+                                                        Toast.makeText(RegisterActivity.this, "Successfully Sign Up", Toast.LENGTH_SHORT).show();
+                                                        startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                                                        finish();
 
-                                                }
-                                            });
+                                                    }
+                                                });
 
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-
+                            Log.i("sdbchjsbdf", "onFailure : ");
                         }
                     });
                 } else
