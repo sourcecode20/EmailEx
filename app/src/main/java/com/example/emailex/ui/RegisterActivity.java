@@ -16,7 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.emailex.R;
 import com.example.emailex.Utils.Loader;
-import com.example.emailex.firebasse.Constants;
+import com.example.emailex.firebase.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -58,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void signup_listener() {
-
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +129,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void init() {
+
         toolbar2 = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar2);
         getSupportActionBar().setTitle("Register");

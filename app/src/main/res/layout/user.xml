@@ -44,4 +44,5 @@
         android:text="@string/address"
         android:textSize="20sp" />
 
+
 </LinearLayout>

@@ -8,4 +8,6 @@
     <color name="yellow">#FFC107</color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#F0F0F0</color>
+    <color name="tab_selected_background">#E6E6E6</color>
+    <color name="tab_unselected_background">#2196F3</color>
 </resources>

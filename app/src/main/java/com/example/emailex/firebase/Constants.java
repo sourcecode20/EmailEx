@@ -1,4 +1,4 @@
-package com.example.emailex.firebasse;
+package com.example.emailex.firebase;
 
 public class Constants {
     public static class Users {
@@ -9,5 +9,11 @@ public class Constants {
         public static String name = "name";
     }
 
+    public static class Accounts {
+        public static String key = "Accounts";
+        public static String name = "name";
+        public static String balance = "balance";
+        public static String loan = "loan";
+    }
 
 }

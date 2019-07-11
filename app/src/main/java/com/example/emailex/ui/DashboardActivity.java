@@ -5,48 +5,50 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.emailex.R;
 import com.example.emailex.Utils.Loader;
-import com.example.emailex.firebasse.Constants;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.emailex.firebase.Constants;
+import com.example.emailex.model.Users;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DashboardActivity extends AppCompatActivity {
     Button signoutBtn;
     Toolbar toolbar3;
     Loader loader;
     TextView name, age, mobile, address;
-    Button button;
+    Button click, click2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        button = findViewById(R.id.a);
-        button.setOnClickListener(new View.OnClickListener() {
+
+
+        click = findViewById(R.id.click);
+        click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DashboardActivity.this,ListActivity.class));
+                startActivity(new Intent(DashboardActivity.this, ListActivity.class));
+            }
+        });
+        click2 = findViewById(R.id.click2);
+        click2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this, AccountActivity.class));
             }
         });
 
@@ -63,10 +65,14 @@ public class DashboardActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                            // dataSnapshot.getValue(Users.class);
+
                             name.setText(dataSnapshot.child(Constants.Users.name).getValue().toString());
                             age.setText(dataSnapshot.child(Constants.Users.age).getValue().toString());
                             mobile.setText(dataSnapshot.child(Constants.Users.mobile).getValue().toString());
                             address.setText(dataSnapshot.child(Constants.Users.address).getValue().toString());
+
+
                             Log.i("fgvyjdf", "onDataChange: " + dataSnapshot.toString());
 
                         }
@@ -77,6 +83,7 @@ public class DashboardActivity extends AppCompatActivity {
                         }
                     });
         }
+
     }
 
     private void FinalViewById() {
